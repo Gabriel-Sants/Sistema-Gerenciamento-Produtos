@@ -3,6 +3,13 @@
         <h1 class="text-2xl font-semibold">Usuários</h1>
     </div>
 
+    <div class="flex justify-end mb-4">
+        <a href="{{ route('users.pdf') }}" target="_blank"
+            class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-red-700 transition">
+            📄 Exportar PDF
+        </a>
+    </div>
+
     <x-table :headers="['ID', 'Nome', 'E-mail']" title="Lista de Usuários" :exibirTotal="true" :qtdTotal="$qtdTotal" entidade="Usuários">
 
         @foreach ($users as $user)
@@ -13,8 +20,5 @@
             </tr>
         @endforeach
     </x-table>
-
-
-
 
 </div>

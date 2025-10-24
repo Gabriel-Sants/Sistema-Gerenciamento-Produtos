@@ -29,12 +29,13 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
+    Route::get('users/pdf', [UserController::class, 'exportarPdf'])->name('users.pdf');
+    Route::get('produtos/pdf', [ProdutoController::class, 'exportarPdf'])->name('produtos.pdf');
+
     Route::resource('produtos', ProdutoController::class);
     Route::resource('categorias', CategoriaController::class);
 
     Route::get('users', [UserController::class, 'index'])->name('users.index');
-    
-    Route::get('users/pdf', [UserController::class, 'exportarPdf'])->name('users.pdf');
 
     Route::redirect('settings', 'settings/profile');
 

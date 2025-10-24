@@ -7,7 +7,7 @@ use App\Models\Categoria;
 use App\Http\Requests\StoreProdutoRequest;
 use App\Http\Requests\UpdateProdutoRequest;
 use Illuminate\Http\Request;
-
+use App\Pdf\TemplatePDF;
 
 
 class ProdutoController extends Controller
@@ -156,5 +156,31 @@ class ProdutoController extends Controller
         }
 
         return redirect()->back()->with('message', 'Erro ao excluir o produto!');
+    }
+
+
+    public function exportarPdf()
+    {
+        $produtos = Produto::orderBy('titulo')->get();
+        $headers = ['ID', 'titulo', 'Marca', 'Preço', 'Quantidade', 'Status'];
+        $mesReferencia = "Outubro/2025";
+       
+
+        $data = $produtos->map(fn($produto) => [
+            $produto->id,
+            $produto->titulo,
+            $produto->marca,
+            'R$ ' . number_format($produto->preco, 2, ',', '.'),
+            $produto->quantidade,
+            ($produto->status == 1) ? 'Ativo' : 'Inativo',
+        ])->toArray();
+
+        $pdf = new TemplatePDF("Relatório de Produtos", $headers, $mesReferencia, $data);
+        $pdf->AliasNbPages();
+        $pdf->AddPage();
+
+        $pdf->renderTable($headers, $data);
+
+        $pdf->Output('I', 'produtos.pdf');
     }
 }
