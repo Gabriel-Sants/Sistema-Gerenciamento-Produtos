@@ -14,6 +14,14 @@
                 + Novo Produto
             </a>
         @endif
+        
+        <div class="flex justify-end mb-4">
+            <a href="{{ route('produtos.pdf') }}" target="_blank"
+                class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition">
+                🧾 Exportar PDF
+            </a>
+        </div>
+      
     </div>
 
     <x-table :headers="[
@@ -83,7 +91,8 @@
                             </a>
 
                             <form method="POST" action="{{ route('produtos.destroy', $produto) }}"
-                                class="form-excluir-produto" data-id="{{ $produto->id }}" onsubmit="return confirm('Tem certeza que deseja excluir este produto?')">
+                                class="form-excluir-produto" data-id="{{ $produto->id }}"
+                                onsubmit="return confirm('Tem certeza que deseja excluir este produto?')">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit"

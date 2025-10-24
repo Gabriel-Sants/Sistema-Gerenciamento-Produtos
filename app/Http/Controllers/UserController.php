@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use App\Pdf\TemplatePDF;
 
 class UserController extends Controller
 {
@@ -61,5 +62,29 @@ class UserController extends Controller
     public function destroy(User $user)
     {
         //
+    }
+
+    public function exportarPdf()
+    {
+        $users = User::orderBy('name')->get();
+        $headers = ['ID', 'Nome', 'Email', 'Criado em'];
+        $mesReferencia = "Outubro/2025";
+
+        $data = $users->map(fn($user) => [
+            $user->id,
+            $user->name,
+            $user->email,
+            $user->created_at ? $user->created_at->format('d/m/Y') : ''
+
+        ])->toArray();
+
+
+        $pdf = new TemplatePDF("Relatório de Usuários", $headers, $mesReferencia, $data);
+        $pdf->AliasNbPages();
+        $pdf->AddPage();
+
+        $pdf->renderTable($headers, $data);
+
+        $pdf->Output('I', 'usuarios.pdf');
     }
 }
