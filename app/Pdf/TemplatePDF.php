@@ -67,7 +67,7 @@ class TemplatePDF extends FPDF
         $this->Cell(95, 10, utf8_decode('Página ' . $this->PageNo() . '/{nb}'), 0, 0, 'R', true);
     }
 
-    function renderTable($header, $data)
+    function renderTable($header, $data, $totalItens=null, $totalValor=null)
     {
 
         $numCols = count($header);
@@ -79,7 +79,7 @@ class TemplatePDF extends FPDF
             $this->Cell($colWidth, 10, utf8_decode($col), 1, 0, 'C');
         }
         $this->Ln();
-        
+
         $this->SetFont('Arial', '', 9);
         foreach ($data as $row) {
             foreach ($row as $col) {
@@ -89,6 +89,20 @@ class TemplatePDF extends FPDF
                 $this->SetXY($x + $colWidth, $y);
             }
             $this->Ln(8);
+        }
+
+        if (!is_null($totalItens) && !is_null($totalValor)) {
+            $this->Ln(2);
+            $this->SetFont('Arial', 'B', 10);
+            $this->SetFillColor(230, 230, 230);
+
+            // Mesclar colunas para o texto "Totais"
+            $this->Cell($colWidth * ($numCols - 4), 10, utf8_decode('Total de Produtos'), 1, 0, 'R', true);
+            $this->Cell($colWidth, 10, $totalItens, 1, 0, 'C', true);
+
+            $this->Cell($colWidth * ($numCols - 4), 10, utf8_decode('Valor Total'), 1, 0, 'R', true);
+
+            $this->Cell($colWidth, 10, 'R$ ' . number_format($totalValor, 2, ',', '.'), 1, 0, 'C', true);
         }
     }
 }

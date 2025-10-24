@@ -164,7 +164,9 @@ class ProdutoController extends Controller
         $produtos = Produto::orderBy('titulo')->get();
         $headers = ['ID', 'titulo', 'Marca', 'Preço', 'Quantidade', 'Status'];
         $mesReferencia = "Outubro/2025";
-       
+
+        $totalItens = $produtos->sum('quantidade');
+        $totalValor = $produtos->sum(fn($p) => $p->preco * $p->quantidade);
 
         $data = $produtos->map(fn($produto) => [
             $produto->id,
@@ -179,7 +181,7 @@ class ProdutoController extends Controller
         $pdf->AliasNbPages();
         $pdf->AddPage();
 
-        $pdf->renderTable($headers, $data);
+        $pdf->renderTable($headers, $data, $totalItens, $totalValor);
 
         $pdf->Output('I', 'produtos.pdf');
     }
