@@ -101,4 +101,14 @@ php artisan migrate --seed ou php artisan migrate:fresh --seed
 composer run dev
 ```
 
+## Testes da API (Postman)
+
+Para testar a API com autenticação via Sanctum Utilize o postman ou outra ferramenta para testes de API.
+
+### Passos:
+1. Abra o [Postman](https://www.postman.com/downloads/).
+2. Faça login(POST) usando a rota `/api/login` para gerar o token.
+3. Cole o token em Authorization em cada requisição.
+4. Execute as rotas protegidas, como `/api/produtos`.
+
 
