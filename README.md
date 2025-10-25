@@ -21,7 +21,7 @@ Este projeto é uma aplicação Laravel para gerenciar produtos, com funcionalid
 ---
 
 ## Dicas
-- Descomente o **extension=fileinfo e extension=mysql  no arquivo php.ini do seu php.**
+- Descomente o **extension=fileinfo, extension=pdo_mysql e extension=zip no arquivo php.ini do seu php.**
 
 ---
 
