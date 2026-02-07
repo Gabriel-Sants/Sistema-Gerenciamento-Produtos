@@ -111,4 +111,24 @@ Para testar a API com autenticação via Sanctum Utilize o postman ou outra ferr
 3. Cole o token em Authorization em cada requisição.
 4. Execute as rotas protegidas, como `/api/produtos`.
 
+---
+
+### Dashboard
+![Dashboard](public/assets/images/docs/Dashboard.png)
+
+---
+### CRUD de Produtos
+![CRUD de Produtos](public/assets/images/docs/Produtos.png)
+
+---
+### Form de Produtos
+![Form de Produtos](public/assets/images/docs/form_produto.png)
+
+---
+### Relatório em PDF
+![Relatório em PDF](public/assets/images/docs/PDF_FPDF.png)
+
+
+---
+
 

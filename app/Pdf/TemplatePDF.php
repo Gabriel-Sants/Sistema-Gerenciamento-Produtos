@@ -26,15 +26,15 @@ class TemplatePDF extends FPDF
         $this->SetFillColor(0, 153, 204);
         $this->Rect(0, 0, 210, 35, 'F');
 
-        $this->SetFillColor(255, 0, 0);
-        $this->Rect(7, 7, 25, 25, 'F');
-        $logoPath = public_path('assets/images/sts_icon_sem_interlace.png');
-        $this->Image($logoPath, 7, 7, 20);
+        // $this->SetFillColor(255, 0, 0);
+        // $this->Rect(7, 7, 25, 25, 'F');
+        $logoPath = public_path('assets/images/icon_system.png');
+        $this->Image($logoPath, 9, 9, 24, 24);
 
         $this->SetXY(45, 10);
         $this->SetFont('Arial', 'B', 11);
         $this->SetTextColor(255, 255, 255);
-        $this->Cell(100, 7, utf8_decode('Projeto STS'), 0, 1, 'L', false);
+        $this->Cell(100, 7, utf8_decode('ProdControl'), 0, 1, 'L', false);
 
         $this->SetXY(45, 17);
         $this->SetFont('Arial', '', 8);

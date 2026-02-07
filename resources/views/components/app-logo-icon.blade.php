@@ -1,1 +1,1 @@
-<img src="{{ asset('assets/images/sts_icon.png') }}" class="bg-primary" alt="Ícone do sistema" {{ $attributes }}>
+<img src="{{ asset('assets/images/icon_system.png') }}" class="" alt="Ícone do sistema" {{ $attributes }}>

@@ -65,7 +65,7 @@
                         </h1>
                     
                         <p class="text-[#706f6c] dark:text-[#A1A09A] max-w-md">
-                            Avaliação prática para Programador Júnior em PHP/Laravel - STS Informática
+                            Sistema de gerenciamento de produtos desenvolvido em Laravel, com CRUD completo, autenticação via API com Sanctum, geração de relatórios em PDF e frontend em Blade utilizando Tailwind/Bootstrap e jQuery para interações dinâmicas.
                         </p>
                     
                     </div>
