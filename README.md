@@ -7,7 +7,7 @@ Este projeto é uma aplicação Laravel para gerenciar produtos, com funcionalid
 - PHP 8.x
 - Laravel 10.x
 - MySQL
-- Sanctum para autenticação
+- Sanctum para autenticação da API
 - FPDF/TCPDF para geração de PDFs
 - Frontend Blade + Tailwind/Bootstrap
 
