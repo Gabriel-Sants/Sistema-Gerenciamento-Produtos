@@ -10,6 +10,7 @@ Este projeto é uma aplicação Laravel para gerenciar produtos, com funcionalid
 - Sanctum para autenticação da API
 - FPDF/TCPDF para geração de PDFs
 - Frontend Blade + Tailwind/Bootstrap
+- jQuery para manipulação do DOM e interações no frontend
 
 ## Requisitos
 
