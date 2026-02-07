@@ -1,7 +1,6 @@
 # Sistema de Gerenciamento de Produtos - Laravel
 
-Este projeto é uma aplicação Laravel para gerenciar produtos, com funcionalidades de CRUD e geração de relatórios em PDF.
-
+Sistema de gerenciamento de produtos desenvolvido em Laravel, com CRUD completo, autenticação via API com Sanctum, geração de relatórios em PDF e frontend em Blade utilizando Tailwind/Bootstrap e jQuery para interações dinâmicas.
 ## Tecnologias
 
 - PHP 8.x
